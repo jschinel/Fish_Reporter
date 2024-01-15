@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('./partials/head.ejs')%>
+    <link rel="stylesheet" href="/styles/home.css">
+</head>
+
+<body>
+    <%-include('./partials/top.ejs')%>
+    <%-include('./partials/nav.ejs')%> 
+    <main class ='itemList'>
+            <% for ( let item of itemlist)
+            {%>
+                <div class="itemContainer">
+                    <h1><%=item.Name%></h1>
+                    <a href="/Catalog/item/<%=item.id%>">
+                    <img src="<%=`${item.Picture}`%>">
+                    <h2>Description: <%=item.Description%></h1>
+                    <h2>Rating: <%=item.Rating%></h3>
+                    <%if(item.Quantity == 0)
+                    {%>
+                        <h2 style="color:red;">OUT OF STOCK</h2>
+                    <%}%>
+                    <%if(item.Quantity > 0)
+                    {%>
+                    <h2>Quantity:<%=item.Quantity%></h4>  
+                    <%}%>
+                    <h1>Price: $<%=item.Price%></h1>
+                    </a> 
+                </div>
+            <%}%>
+    </main>
+</body>

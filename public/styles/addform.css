@@ -1,0 +1,150 @@
+/* Reset styles for cross-browser consistency */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scrollbar-color: #333;
+    scrollbar-width: 10px;
+}
+.settings
+{
+    display: flex;
+    flex-flow: row-reverse;
+    left:82%;
+    column-gap: 50px;
+    position: absolute;
+    background: transparent;
+    z-index: 1;
+    a{
+        color: black;
+        text-decoration: none;
+    }
+    h1:hover
+    {
+        cursor: pointer;
+    }
+}
+.Top
+{
+    height:45dvh;
+    width:100dvw;
+    min-width: 900px;
+    min-height: 540px;
+    padding: 10px;
+    justify-content: center;
+    background-image: url("https://th.bing.com/th/id/R.847fa3429e0402cbe1b4869be373dd38?rik=VqqOdfm06W%2bZog&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fxmIejHd.jpg&ehk=uK9oWpMla%2fJASDFU4NRy4VPWxS1AqPrQ69FqPDxZdcA%3d&risl=&pid=ImgRaw&r=0");
+    background-size: cover;
+    h1
+    {
+        position: relative;
+        margin-top: 5%;
+        text-align: center;
+        font-size: 10em;
+       color: rgb(124, 91, 0);
+        background-color: #022902; 
+        opacity: .9;
+    }
+}
+.Middle
+{
+    top:45dvh;
+    background-color: #3b3a3a;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 20pt;   
+    color: rgb(124, 91, 0);
+    background-color: #022902;
+    height:60px;
+    width:100dvw;
+    min-width: 900px;
+    #Items
+    {
+        display: flex;
+        border: 1px solid black;
+        justify-content: center;
+        align-items: center;
+        background-color: inherit;
+        cursor: pointer;
+        font-size: 2em;
+        height:100%;
+        min-width:170px;
+        width:50%;
+        h1
+        {
+            color: rgb(124, 91, 0);
+            font-size: 1em;
+            text-decoration: none;
+        }
+        a
+        {           
+            text-decoration: none;
+        }
+    }
+    #AddItem
+    {
+        display: flex;
+        border: 1px solid black;
+        justify-content: center;
+        align-items: center;
+        background-color: inherit;
+        cursor: pointer;
+        font-size: 2em;
+        height:100%;
+        min-width:170px;
+        width:50%;
+        h1
+        {
+            color: rgb(124, 91, 0);
+            font-size: 1em;
+            text-decoration: none;
+        }
+        a
+        {           
+            text-decoration: none;
+        }
+    }
+}
+.itemList
+{
+    width:100dvw;
+
+    display: flex;
+    justify-content: center;
+    background-image: url('https://th.bing.com/th/id/R.84e4a342622e2129949448172421b74f?rik=SELFg6ubcD4YuQ&riu=http%3a%2f%2fwww.fractalcamo.com%2fuploads%2f5%2f9%2f0%2f2%2f5902948%2fs189772745713394276_p5588_i149_w640.jpeg&ehk=QeErQsTC77NBMRamoYv3E2jxs9gj00lTY6bgmVwsDvU%3d&risl=&pid=ImgRaw&r=0;');
+    form
+    {
+        height: 700px;
+        width: 40%;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        display: flex;
+        flex-flow: column;
+        flex-wrap: wrap;
+        justify-content:center;
+        justify-self: center;;
+        align-self: center;
+        background-color: white;
+        opacity: .8;
+        input
+        {
+            align-self: center;
+            padding-bottom: 20px;
+            width:20%;
+            font-size: 2em;
+        }
+        Label
+        {
+            font-size: 200%;
+            align-self: center;
+            padding-Top: 20px;
+            width:20%;
+        }
+        .submit
+        {
+            font-size: 120%;
+            text-align: center;
+            margin-top:30px;
+        }
+    }
+}

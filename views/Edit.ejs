@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('./partials/head.ejs')%>
+    <link rel="stylesheet" href="/styles/addform.css">
+</head>
+
+<body>
+    <%-include('./partials/top.ejs')%>
+    <%-include('./partials/nav.ejs')%> 
+    <main class ='itemList'>
+        <form action='/Catalog/UpdateEdit/<%=singleItem[0].id%>' method="POST">
+            <label for="Item_Number">Item Number</label>
+            <input type="Number" name="Item_Number" id="Item_Number" value="<%=singleItem[0].Item_Number%>">
+            <label for="Name">Name</label>
+            <input type="String" name="Name" id="Name" value="<%=singleItem[0].Name%>">
+            <label for="Description">Description</label>
+            <input type="String" name="Description" id="Description" value="<%=singleItem[0].Description%>">
+            <label for="Rating">Rating</label>
+            <input type="Number" name="Rating" id="Rating" min="0" max="10"value="<%=singleItem[0].Rating%>">
+            <label for="Price">Price</label>
+            <input type="Number" name="Price" id="Price" min="0" value="<%=singleItem[0].Price%>">
+            <label for="Quantity">Quantity</label>
+            <input type="Number" name="Quantity" id="Quantity" min="0"value="<%=singleItem[0].Quantity%>">
+            <label for="Picture">Picture</label>
+            <input type="String" name="Picture" id="Picture" value="<%=singleItem[0].Picture%>">
+            <input class = "submit" type="submit" value="Submit">
+        </form>
+    </main>
+</body>
+

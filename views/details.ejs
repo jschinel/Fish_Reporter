@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('./partials/head.ejs')%>
+    <link rel="stylesheet" href="/styles/detail.css">
+</head>
+
+<body>
+    <%-include('./partials/top.ejs')%>
+    <div class = "itemList">
+        <div class="itemContainer">
+            <div class = 'reviewAndItem'>
+                <% console.log(singleItem.Name)%>
+                <div class='TitleandDelete'>
+                    <h1><%=singleItem[0].Name%></h1>
+                    <a href="/Catalog/edit/<%=singleItem[0].id%>">
+                        <button>Edit</button>
+                    </a>  
+                    <a href="/Catalog/delete/<%=singleItem[0].id%>">
+                        <button>Delete</button>
+                    </a> 
+                    <a href="/Review/<%=singleItem[0].id%>">
+                        <button>Post Review</button>
+                    </a> 
+                </div> 
+                <img src="<%=`${singleItem[0].Picture}`%>">
+                <h2>Description: <%=singleItem[0].Description%></h1>
+                <h2>Rating: <%=singleItem[0].Rating%></h3>
+                <%if(singleItem[0].Quantity == 0)
+                {%>
+                    <h2 style="color:red;">OUT OF STOCK</h2>
+                <%}%>
+                <%if(singleItem[0].Quantity > 0)
+                {%>
+                <h2>Quantity:<%=singleItem[0].Quantity%></h4>  
+                <%}%>
+                <div class='purchaseContainer'>
+                    <h1>Price: $<%=singleItem[0].Price%></h1> 
+                    <div class = 'cart'>
+                        <div class = 'input'>
+                            <a href="/Catalog/Update/<%=singleItem[0].id%>">
+                                <button class = 'buy'>Purchase</button> 
+                            </a>
+                        </div>                                        
+                    </div>
+                </div>
+            </div> 
+            <div class = "reviews">
+            <% for ( let i = 0 ; i < singleItem[0].Reviews.length;i++)
+            {%>
+                <div class = "reviewContainer">
+                    <h1>Reviewer: <%=singleItem[0].Reviews[i].Reviewer%><h1>
+                    <h1>Title: <%=singleItem[0].Reviews[i].Title%><h1>   
+                    <h1>Content: <%=singleItem[0].Reviews[i].Content%><h1>
+                </div>                   
+            <%}%>
+            </div> 
+        </div>
+    </div>
+</body>
