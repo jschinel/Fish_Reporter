@@ -53,7 +53,7 @@ app.use(connectLiveReload());
 
 // Home page
 app.get('/', async function (req, res) {
-    res.redirect('/Catalog')
+    res.redirect('/search/lakes')
 });
 
 // When a GET request is sent to `/seed`, the items collection is seeded
@@ -65,12 +65,12 @@ app.get('/seed', async (req, res) => {
     const newProducts = await db.Product.insertMany(db.seedProduct)
     console.log(`Added ${db.seedProduct.length} items to be sold`)
     //Redirect back to item gallery
-    res.redirect('/Catalog')
+    res.redirect('/search/lakes')
 })
 
 // This tells our app to look at the `controllers/product.js` file 
 // to handle all routes that begin with `localhost:3000/item`
-app.use('/Catalog', itemCtrl)
+app.use('/search', itemCtrl)
 app.use('/Review', reviewCtrl)
 
 
