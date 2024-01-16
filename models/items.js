@@ -5,9 +5,10 @@ const reviewSchema = require('./reviews.js')
 
 // Create a schema to define the properties of the items collection
 const itemSchema = new mongoose.Schema({
-    Location_Type:{type:String, required:false},
+    Location_Type:{type:String, required: true},
     Name: { type: String, required: true },
-    Fish: { type: String, required: true },
+    City: {type: String, required:false},
+    Fish: { type: String, required: false },
     Picture:{type: String}, 
     Posts:[reviewSchema]
 });

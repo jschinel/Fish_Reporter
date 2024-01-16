@@ -53,7 +53,7 @@ app.use(connectLiveReload());
 
 // Home page
 app.get('/', async function (req, res) {
-    res.redirect('/search/lakes')
+    res.redirect('/search/?Location_Type=Lake')
 });
 
 // When a GET request is sent to `/seed`, the items collection is seeded
@@ -65,7 +65,7 @@ app.get('/seed', async (req, res) => {
     const newProducts = await db.Product.insertMany(db.seedProduct)
     console.log(`Added ${db.seedProduct.length} items to be sold`)
     //Redirect back to item gallery
-    res.redirect('/search/lakes')
+    res.redirect('/search/?Location_Type=Lake')
 })
 
 // This tells our app to look at the `controllers/product.js` file 

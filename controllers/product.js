@@ -16,19 +16,14 @@ const db = require('../models')
 
 /* Routes
 --------------------------------------------------------------- */
-router.get('/:type', async function (req, res)
- {
-    if(req.params.type=="lakes")
-    {
-        let itemlist = await db.Product.find({Location_Type:"Lake"})
-        res.render('home',{itemlist: itemlist})
-    }
-    if(req.params.type=="rivers")
-    {
-        let itemlist = await db.Product.find({Location_Type:"River"})
-        res.render('home',{itemlist: itemlist})
-    }
 
+// This will pull up the corresponding lakes or rivers dependant on the request query
+router.get('/', async function (req, res)
+ {
+        // console.log(req.query)
+
+        let itemlist = await db.Product.find(req.query)
+        res.render('home',{itemlist: itemlist})
 })
 
 // router.post('/postnew', (req, res) => {

@@ -6,28 +6,35 @@
 </head>
 
 <body>
-    <%-include('./partials/top.ejs')%>
-    <%-include('./partials/nav.ejs')%> 
-    <main class ='itemList'>
+    <div class = "StickyTop">
+        <%-include('./partials/top.ejs')%>
+        <%-include('./partials/nav.ejs')%>
+        <div class = "Filter">
+            <h1>Filter</h1>
+            <form>
+                <label for="Location_Type">Item Number</label>
+                <input type="Number" name="Location_Type" id="Item_Number" >
+                <label for="Name">Name</label>
+                <input type="String" name="Name" id="Name">
+                <label for="Description">Description</label>
+                <input type="String" name="Description" id="Description">
+                <label for="Rating">Rating</label>
+            </form>
+        </div> 
+    </div>
+    <main class ='List'>
+        <div class ='itemList'>
             <% for ( let item of itemlist)
             {%>
                 <div class="itemContainer">
                     <h1><%=item.Name%></h1>
                     <a href="/Catalog/item/<%=item.id%>">
                     <img src="<%=`${item.Picture}`%>">
-                    <h2>Description: <%=item.Description%></h1>
-                    <h2>Rating: <%=item.Rating%></h3>
-                    <%if(item.Quantity == 0)
-                    {%>
-                        <h2 style="color:red;">OUT OF STOCK</h2>
-                    <%}%>
-                    <%if(item.Quantity > 0)
-                    {%>
-                    <h2>Quantity:<%=item.Quantity%></h4>  
-                    <%}%>
-                    <h1>Price: $<%=item.Price%></h1>
+                    <h2>City: <%=item.City%></h1>
+                    <h2>Fish: <%=item.Fish%></h3>
                     </a> 
                 </div>
             <%}%>
+        </div>
     </main>
 </body>
