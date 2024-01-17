@@ -7,15 +7,20 @@
 
 <body>
     <%-include('./partials/top.ejs')%>
-    <%-include('./partials/nav.ejs')%> 
     <main class ='itemList'>
-        <form action='/Review/postnew/<%=reviewItem[0].id%>' method="POST">
-            <label for="Reviewer">Reviewer</label>
+        <form action='/Posts/<%=reviewItem[0].id%>' method="POST">
+            <label for="Reviewer">Name</label>
             <input type="String" name="Reviewer" id="Reviewer" >
             <label for="Title">Title</label>
             <input type="String" name="Title" id="Title" >
+            <label for="Bait">Bait</label>
+            <input type="String" name="Bait" id="Bait" >
+            <label for="Time">Time</label>
+            <input type="String" name="Time" id="Time" >
+            <label for="Weather">Weather</label>
+            <input type="String" name="Weather" id="Weather" >
             <label for="Content">Content</label>
-            <input type="Description" name="Content" id="Content" >
+            <input type="String" name="Content" id="Content" >
             <input class = "submit" type="submit" value="submit">
         </form>
     </main>

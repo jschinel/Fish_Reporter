@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 
 
-const reviewSchema = new mongoose.Schema({
+const postsSchema = new mongoose.Schema({
     Reviewer:{type:String, required:false},     //Reviewers accoutn name
     Title: { type: String, required: true },    // Title of the post
     Bait: {type: String, require:false},        //Worms, mealworms, leeches, minnow, artifical, lure, other
@@ -12,4 +12,4 @@ const reviewSchema = new mongoose.Schema({
     Content: { type: String, required: true },  // Description of how many fish caught what kind etc
 })
 
-module.exports = reviewSchema
+module.exports = postsSchema

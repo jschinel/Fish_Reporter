@@ -3,76 +3,100 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
-    overflow-y: hidden;
 }
-.settings
+.StickyTop
 {
-    display: flex;
-    flex-flow: row-reverse;
-    left:82%;
-    column-gap: 50px;
-    position: absolute;
-    background: transparent;
-    z-index: 1;
-    a{
-        color: black;
-        text-decoration: none;
-    }
-    h1:hover
-    {
-        cursor: pointer;
-    }
+        position: -webkit-sticky; /* Safari */
+        position: sticky;
+        top: 0;
+        display: flex;
+        flex-flow: column;
+        background-image: url('https://th.bing.com/th/id/OIP.e61ZUm2OL9EtmH0lNxT4dwHaE8?pid=ImgDetMain');
+        .Filter:hover
+        {
+            background-color: white;
+            opacity: 1;
+            display: flex;
+            flex-flow: row;
+            form
+            {
+                display: flex
+            }
+    
+        }
+        .Filter
+        {
+            background-color: white;
+            opacity: .5;
+            display: flex;
+            flex-flow: row;
+            form
+            {
+                display: none
+            }
+        };
 }
-.Top
+.Toptotal
 {
-    position: absolute;
-    height:100dvh;
+    
     width:100dvw;
-    min-width: 2000px;
-    min-height: 1500px;
-    padding: 10px;
-    justify-content: center;
     background-image: url("https://th.bing.com/th/id/R.847fa3429e0402cbe1b4869be373dd38?rik=VqqOdfm06W%2bZog&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fxmIejHd.jpg&ehk=uK9oWpMla%2fJASDFU4NRy4VPWxS1AqPrQ69FqPDxZdcA%3d&risl=&pid=ImgRaw&r=0");
-    background-size: cover;
-    z-index: 0;
-    overflow-y: hidden;
-    h1
+    .settings
     {
-        position: relative;
-        margin-top: 5%;
-        text-align: center;
-        font-size: 10em;
-        color: rgb(124, 91, 0);
-        background-color: #022902; 
-        opacity: .9;
+        display: flex;
+        flex-flow: row-reverse;
+        column-gap: 50px;
+        background: transparent;
+        a{
+            color: black;
+            text-decoration: none;
+        }
+        h1:hover
+        {
+            cursor: pointer;
+        }
+        h1
+        {
+            Font-size:35px;
+            padding-right: 5%;
+        }
+    }
+    .Top
+    {
+        height:45dvh;
+        width:100dvw;
+        height: 100px;
+        justify-content: center;
+        background-size: cover;
+        h1
+        {
+            position: relative;
+            text-align: center;
+            font-size: 400%;
+            color: rgb(124, 91, 0);
+            background-color: #022902; 
+            opacity: .9;
+        } 
     }
 }
 .itemList
 {
 
-    position: absolute;
-    height:700px;
-    width:00px;
-    left:800px;
-    top:400px;
+    height:100dvh;
+    width:100dvw;
     background-color: transparent;
-    z-index: 1;
     .itemContainer
     {
         display: flex;
         flex: row;
         position:relative;
         padding-top: 10px;
-        height: 20vh;
-        width: 50vw;
-        min-width: 400px;
-        max-width: 900px;
+        height:100dvh;
+        width:100dvw;
         height: fit-content;
-        min-height: 300px;
-        max-height:1000px;
+        min-height: 900px;
         color: black;
-        background-color: white;
+        background-color: tan;
         border: 2px solid black;
         z-index: inherit;
         .TitleandDelete
@@ -149,6 +173,7 @@
         display: flex;
         flex-flow: column;
         width: 50%;
+        border: 2px solid black;
         overflow-y: scroll;
         .reviewContainer
         {
@@ -159,6 +184,73 @@
                 font-size: 1em;
                 text-decoration: none;
             }  
+        }
+    }
+}
+
+@media screen and (max-width: 425px)
+{
+    .Toptotal
+    {
+        .settings
+        {
+            h1
+            {
+                Font-size:15px;
+                padding-right: 5%;
+            }
+        }
+        .Top
+        {
+            h1
+            {
+                font-size: 300%;
+
+            } 
+        }
+    }
+    .Middle
+    {
+        font-size: 15pt;   
+        #Lakes
+        {
+
+            h1
+            {
+                font-size: 30px;
+            }
+
+        }
+        #Rivers
+        {
+            h1
+            {
+                font-size: 30px;
+            }
+        }
+    }
+    .List{
+
+        .itemList
+        {
+            .itemContainer
+            {
+
+            min-width: 250px;
+            min-height: 400px;
+            height:400px;
+            min-height: 300px;
+            h2
+            {
+                font-size: 12px;
+            }
+            }
+            img
+            {
+                width:100%;
+                height:40%;
+                padding: 10px;
+            }
         }
     }
 }

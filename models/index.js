@@ -13,6 +13,7 @@ db.on('connected', function () {
 
 // Export models & seed data
 module.exports = {
-    Product: require('./items'),
-    seedProduct: require('./seed')
+    Location: require('./Locations'),
+    Posts: require('./posts'),
+    seedLocations: require('./seed')
 }

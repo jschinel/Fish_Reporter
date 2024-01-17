@@ -14,9 +14,9 @@ const db = require('./models');
 
 /* Require the routes in the controllers folder
 --------------------------------------------------------------- */
-const itemCtrl = require('./controllers/product');
-const reviewCtrl = require('./controllers/reviews');
-const { find } = require('./models/items');
+const itemCtrl = require('./controllers/Location');
+const postsCtrl = require('./controllers/posts');
+const { find } = require('./models/Locations');
 
 
 /* Create the Express app
@@ -53,25 +53,25 @@ app.use(connectLiveReload());
 
 // Home page
 app.get('/', async function (req, res) {
-    res.redirect('/search/?Location_Type=Lake')
+    res.redirect('/Location/?Location_Type=Lake')
 });
 
 // When a GET request is sent to `/seed`, the items collection is seeded
 app.get('/seed', async (req, res) => {
     // Remove any existing items
-    const formerItems = await db.Product.deleteMany({})
-    console.log(`Removed ${formerItems.deletedCount} items`)
+    const formerLocations = await db.Location.deleteMany({})
+    console.log(`Removed ${formerLocations.deletedCount} items`)
     // Seed the items collection with the starter data
-    const newProducts = await db.Product.insertMany(db.seedProduct)
-    console.log(`Added ${db.seedProduct.length} items to be sold`)
+    const newLocations = await db.Location.insertMany(db.seedLocations)
+    console.log(`Added ${db.seedLocations.length} items to be sold`)
     //Redirect back to item gallery
-    res.redirect('/search/?Location_Type=Lake')
+    res.redirect('/Location/?Location_Type=Lake')
 })
 
 // This tells our app to look at the `controllers/product.js` file 
 // to handle all routes that begin with `localhost:3000/item`
-app.use('/search', itemCtrl)
-app.use('/Review', reviewCtrl)
+app.use('/Location', itemCtrl)
+app.use('/Posts', postsCtrl)
 
 
 /* Tell the app to listen on the specified port

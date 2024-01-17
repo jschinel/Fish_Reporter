@@ -3,6 +3,8 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 .StickyTop
 {
@@ -11,7 +13,9 @@
         top: 0;
         display: flex;
         flex-flow: column;
-        background-image: url('https://th.bing.com/th/id/R.84e4a342622e2129949448172421b74f?rik=SELFg6ubcD4YuQ&riu=http%3a%2f%2fwww.fractalcamo.com%2fuploads%2f5%2f9%2f0%2f2%2f5902948%2fs189772745713394276_p5588_i149_w640.jpeg&ehk=QeErQsTC77NBMRamoYv3E2jxs9gj00lTY6bgmVwsDvU%3d&risl=&pid=ImgRaw&r=0;');
+        background-image: url('https://media.istockphoto.com/photos/storm-at-night-picture-id456067599?k=6&m=456067599&s=612x612&w=0&h=UM0zY7MuXx0SXau7E6SVPbYfcTLuvO4g5fv2FxRqkgY=');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
         .Filter:hover
         {
             background-color: white;
@@ -38,17 +42,34 @@
 }
 .Toptotal
 {
-    
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
     width:100dvw;
-    background-image: url("https://th.bing.com/th/id/R.847fa3429e0402cbe1b4869be373dd38?rik=VqqOdfm06W%2bZog&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fxmIejHd.jpg&ehk=uK9oWpMla%2fJASDFU4NRy4VPWxS1AqPrQ69FqPDxZdcA%3d&risl=&pid=ImgRaw&r=0");
+    .Top
+    {
+        height:45dvh;
+        width:50dvw;
+        height:180px;
+        justify-content: center;
+        background-size: cover;
+        h1
+        {
+            position: relative;
+            text-align: center;
+            font-size: 500%;
+            color: rgb(240, 239, 238);
+            opacity: .9;
+        } 
+    }
     .settings
     {
+        width:55%;
         display: flex;
         flex-flow: row-reverse;
-        column-gap: 50px;
+        column-gap: 30px;
         background: transparent;
         a{
-            color: black;
             text-decoration: none;
         }
         h1:hover
@@ -57,28 +78,12 @@
         }
         h1
         {
-            Font-size:35px;
+            color: hsl(0, 0%, 7%);
+            Font-size:25px;
             padding-right: 5%;
         }
     }
-    .Top
-    {
-        height:45dvh;
-        width:100dvw;
-        height:180px;
-        justify-content: center;
-        background-size: cover;
-        h1
-        {
-            position: relative;
-            margin-top: 2%;
-            text-align: center;
-            font-size: 400%;
-            color: rgb(124, 91, 0);
-            background-color: #022902; 
-            opacity: .9;
-        } 
-    }
+
 }
 .Middle
 {
@@ -88,14 +93,13 @@
     flex-direction: row;
     justify-content: center;
     font-size: 20pt;   
-    color: rgb(124, 91, 0);
-    background-color: #022902;
+    background-color: rgb(9, 9, 68);
     height:60px;
     width:100dvw;
     #Lakes
     {
         display: flex;
-        border: 1px solid black;
+        border: 1px solid #faf9f9;
         justify-content: center;
         align-items: center;
         background-color: inherit;
@@ -106,7 +110,7 @@
         width:50%;
         h1
         {
-            color: rgb(124, 91, 0);
+            color: #ecebe7;
             font-size: 1em;
             text-decoration: none;
         }
@@ -118,7 +122,7 @@
     #Rivers
     {
         display: flex;
-        border: 1px solid black;
+        border: 1px solid #f3f2f2;
         justify-content: center;
         align-items: center;
         background-color: inherit;
@@ -129,7 +133,7 @@
         width:50%;
         h1
         {
-            color: rgb(124, 91, 0);
+            color: rgb(250, 250, 250);
             font-size: 1em;
             text-decoration: none;
         }
@@ -143,7 +147,7 @@
 {
        overflow-y: scroll;
        Height:600px;
-       background-image: url('https://th.bing.com/th/id/R.84e4a342622e2129949448172421b74f?rik=SELFg6ubcD4YuQ&riu=http%3a%2f%2fwww.fractalcamo.com%2fuploads%2f5%2f9%2f0%2f2%2f5902948%2fs189772745713394276_p5588_i149_w640.jpeg&ehk=QeErQsTC77NBMRamoYv3E2jxs9gj00lTY6bgmVwsDvU%3d&risl=&pid=ImgRaw&r=0;');
+       background-image: url("https://th.bing.com/th/id/R.a61d96f23882c8e5a47ab16a6a7d7207?rik=QGLtMMZ1AoMqYw&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f06%2fOcean-underwater-light-wallpaper-hd.jpg&ehk=RLmSM8K8ZQQn3YDnpMQGZfb5E3dJHQENNRqudKJONlY%3d&risl=1&pid=ImgRaw&r=0");
         .itemList
         { 
             padding-top: 50px;
@@ -195,16 +199,17 @@
             }
         }
     }
-
-@media screen and (max-width: 425px)
+@media screen and (max-width: 725px)
 {
     .Toptotal
     {
         .settings
         {
+            column-gap: 10px;
             h1
             {
-                Font-size:15px;
+
+                Font-size:12px;
                 padding-right: 5%;
             }
         }
@@ -213,6 +218,30 @@
             h1
             {
                 font-size: 300%;
+
+            } 
+        }
+    }
+    }
+@media screen and (max-width: 425px)
+{
+    .Toptotal
+    {
+        .settings
+        {
+            column-gap: 10px;
+            h1
+            {
+
+                Font-size:12px;
+                padding-right: 5%;
+            }
+        }
+        .Top
+        {
+            h1
+            {
+                font-size: 180%;
 
             } 
         }

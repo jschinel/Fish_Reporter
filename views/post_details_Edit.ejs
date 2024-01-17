@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('./partials/head.ejs')%>
+    <link rel="stylesheet" href="/styles/addform.css">
+</head>
+
+<body>
+    <%-include('./partials/top.ejs')%>
+    <main class ='itemList'>
+        <form action='/Posts/<%=reviewItem[0].id%>' method="POST">
+            <label for="Reviewer">Name</label>
+            <input type="String" name="Reviewer" id="Reviewer" value="<%=singleItem[0].Reviewer%>">
+            <label for="Title">Title</label>
+            <input type="String" name="Title" id="Title" value="<%=singleItem[0].Title%>">
+            <label for="Bait">Bait</label>
+            <input type="String" name="Bait" id="Bait" value="<%=singleItem[0].Bait%>">
+            <label for="Time">Time</label>
+            <input type="String" name="Time" id="Time" value="<%=singleItem[0].Time%>">
+            <label for="Weather">Weather</label>
+            <input type="String" name="Weather" id="Weather" value="<%=singleItem[0].Weather%>">
+            <label for="Content">Content</label>
+            <input type="String" name="Content" id="Content" value="<%=singleItem[0].Content%>">
+            <input class = "submit" type="submit" value="submit">
+        </form>
+    </main>
+</body>
