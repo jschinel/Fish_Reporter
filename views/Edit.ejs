@@ -6,7 +6,9 @@
 </head>
 
 <body>
-    <%-include('./partials/top.ejs')%>
+    <div class = "StickyTop">
+        <%-include('./partials/top.ejs')%>
+        </div>
     <main class ='itemList'>
         <form action='/Location/UpdateEdit/<%=singleItem[0].id%>' method="POST">
             <label for="Location_Type">Location Type</label>

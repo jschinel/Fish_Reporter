@@ -8,19 +8,19 @@
 <body>
     <%-include('./partials/top.ejs')%>
     <main class ='itemList'>
-        <form action='/Posts/<%=reviewItem[0].id%>' method="POST">
+        <form action='/Posts/update/<%=singleItem.id%>/<%=singlePost.id%>' method="post">
             <label for="Reviewer">Name</label>
-            <input type="String" name="Reviewer" id="Reviewer" value="<%=singleItem[0].Reviewer%>">
+            <input type="String" name="Reviewer" id="Reviewer" value="<%=singlePost.Reviewer%>">
             <label for="Title">Title</label>
-            <input type="String" name="Title" id="Title" value="<%=singleItem[0].Title%>">
+            <input type="String" name="Title" id="Title" value="<%=singlePost.Title%>">
             <label for="Bait">Bait</label>
-            <input type="String" name="Bait" id="Bait" value="<%=singleItem[0].Bait%>">
+            <input type="String" name="Bait" id="Bait" value="<%=singlePost.Bait%>">
             <label for="Time">Time</label>
-            <input type="String" name="Time" id="Time" value="<%=singleItem[0].Time%>">
+            <input type="String" name="Time" id="Time" value="<%=singlePost.Time%>">
             <label for="Weather">Weather</label>
-            <input type="String" name="Weather" id="Weather" value="<%=singleItem[0].Weather%>">
+            <input type="String" name="Weather" id="Weather" value="<%=singlePost.Weather%>">
             <label for="Content">Content</label>
-            <input type="String" name="Content" id="Content" value="<%=singleItem[0].Content%>">
+            <input type="String" name="Content" id="Content" value="<%=singlePost.Content%>">
             <input class = "submit" type="submit" value="submit">
         </form>
     </main>

@@ -6,21 +6,8 @@ URI | Rest Route | HTTP Method | Crud Action | Description
 ---|---|---|---|---|
 | / | N/A | Get | read | Redirects to the spash page displaying all items
 | /seed | N/A | Get | Create/Destroy | Will delete all items in database and re-initialize with local data
-| /Catalog | Index | Get | Read | Displays all the items
-| /Catalog/item/:id | Show | Get | Read | Displays the details of a specific item
-| /Catalog/delete/:id | destroy | get | delete | Deletes a specific item dependant on the ID
-| /Catalog/add  | new | Get | Read | This will display the form in order to add a product to the database
-| /Catalog/edit/:id | edit  | GET | Read | This will bring up the edit form to change a product on the DB
-| /Catalog/update/:id | update | Patch | Use | This will update the quantity element when a purchase is
-| /Catalog/postnew
-router.post('/postnew', (req, res) => {
-    console.log(req.body)
-    db.Product.create(req.body)
-        .then(() => res.redirect('/'))
-})
-| | | | |
-| /Review/:id | new	| GET | Read | Display the form to create a new post
-| /Review/postnew/:id | create | post | Read | Will actually create the new post to a product
+| / | Index | Get | Read | Displays all the items
+|
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 URI | Rest Route | HTTP Method | Crud Action | Description

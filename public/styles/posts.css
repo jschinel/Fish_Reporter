@@ -62,7 +62,7 @@
     background-color: rgb(9, 9, 68);
     height:60px;
     width:100dvw;
-    #Lakes
+    #PostDelete
     {
         display: flex;
         border: 1px solid #faf9f9;
@@ -72,8 +72,8 @@
         cursor: pointer;
         font-size: 2em;
         height:100%;
-        min-width:80px;
-        width:33.3%;
+        min-width:100px;
+        width:50%;
         h1
         {
             color: darkcyan;
@@ -85,7 +85,7 @@
             text-decoration: none;
         }
     }
-    #Rivers
+    #PostEdit
     {
         display: flex;
         border: 1px solid #f3f2f2;
@@ -95,35 +95,12 @@
         cursor: pointer;
         font-size: 2em;
         height:100%;
-        min-width:80px;
-        width:33.3%;
+        min-width:100px;
+        width:50%;
         h1
         {
             color: darkcyan;
             font-size: 1em;
-            text-decoration: none;
-        }
-        a
-        {           
-            text-decoration: none;
-        }
-    }
-    #Add_Location
-    {
-        display: flex;
-        border: 1px solid #f3f2f2;
-        justify-content: center;
-        align-items: center;
-        background-color: inherit;
-        cursor: pointer;
-        font-size: 2em;
-        height:100%;
-        min-width:80px;
-        width:33.3%;
-        h1
-        {
-            color: darkcyan;
-            font-size: .8em;
             text-decoration: none;
         }
         a
@@ -140,6 +117,7 @@
     display: flex;
     justify-content: center;
     background-image: url("https://th.bing.com/th/id/R.a61d96f23882c8e5a47ab16a6a7d7207?rik=QGLtMMZ1AoMqYw&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f06%2fOcean-underwater-light-wallpaper-hd.jpg&ehk=RLmSM8K8ZQQn3YDnpMQGZfb5E3dJHQENNRqudKJONlY%3d&risl=1&pid=ImgRaw&r=0");
+    height: 100dvh;
     form
     {
         height: fit-content;
@@ -179,7 +157,7 @@
         }
     }
 }
-@media screen and (max-width: 775px)
+@media screen and (max-width: 725px)
 {
     .Toptotal
     {
@@ -202,32 +180,7 @@
             } 
         }
     }
-    .Middle
-    {
-        #Lakes
-        {
-            h1
-            {
-                font-size: .4em;
-            }
-        }
-        #Rivers
-        {
-            h1
-            {
-                font-size: .4em;
-            }
-        }
-        #Add_Location
-        {
-            h1
-            {
-                font-size: .4em;
-            }
-        }
     }
-}
-
 @media screen and (max-width: 525px)
 {
     .itemList
@@ -281,25 +234,19 @@
     }
     .Middle
     {
-        #Lakes
+
+        #PostDelete
         {
             h1
             {
-                font-size: .3em;
+                font-size: .7em;
             }
         }
-        #Rivers
+        #PostEdit
         {
             h1
             {
-                font-size: .3em;
-            }
-        }
-        #Add_Location
-        {
-            h1
-            {
-                font-size: .3em;
+                font-size: .7em;
             }
         }
     }

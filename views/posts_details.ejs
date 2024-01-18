@@ -2,19 +2,27 @@
 <html lang="en">
 <head>
     <%-include('./partials/head.ejs')%>
-    <link rel="stylesheet" href="/styles/addform.css">
+    <link rel="stylesheet" href="/styles/posts.css">
 </head>
 
 <body>
     <%-include('./partials/top.ejs')%>
+    <Div class="Middle">
+        <box id = "PostDelete"> <a href='/Posts/edit/<%=singleItem.id%>/<%=singlePost.id%>'>
+            <h1>Edit</h1>
+        </a></box>
+        <box id = "PostEdit"> <a href='/Posts/delete/<%=singleItem.id%>/<%=singlePost.id%>'>
+            <h1>Delete</h1>
+        </a></box>
+    </Div>
     <main class ='itemList'>
         <div class = "reviewContainer">
-            <h1>Reviewer: <%=singleItem.Reviewer%><h1>
-            <h1>Title: <%=singleItem.Title%><h1>
-            <h1>Bait: <%=singleItem.Bait%></h1>
-            <h1>Time: <%=singleItem.Time%></h1>     
-            <h1>Weather: <%=singleItem.Weather%><h1>
-            <h1>Content: <%=singleItem.Content%><h1>
+            <h1>Reviewer: <%=singlePost.Reviewer%><h1>
+            <h1>Title: <%=singlePost.Title%><h1>
+            <h1>Bait: <%=singlePost.Bait%></h1>
+            <h1>Time: <%=singlePost.Time%></h1>     
+            <h1>Weather: <%=singlePost.Weather%><h1>
+            <h1>Content: <%=singlePost.Content%><h1>
         </div> 
     </main>
 </body>
