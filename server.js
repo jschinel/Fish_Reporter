@@ -75,17 +75,6 @@ app.get('/', async function (req, res) {
     res.redirect('/Location')
 });
 
-// When a GET request is sent to `/seed`, the items collection is seeded
-app.get('/seed', async (req, res) => {
-    // Remove any existing items
-    const formerLocations = await db.Location.deleteMany({})
-    console.log(`Removed ${formerLocations.deletedCount} items`)
-    // Seed the items collection with the starter data
-    const newLocations = await db.Location.insertMany(db.seedLocations)
-    console.log(`Added ${db.seedLocations.length} items to be sold`)
-    //Redirect back to item gallery
-    res.redirect('/Location')
-})
 
 // This tells our app to look at the `controllers/product.js` file 
 // to handle all routes that begin with `localhost:3000/item`
