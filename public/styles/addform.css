@@ -15,7 +15,7 @@
     width:100dvw;
     .Top
     {
-        height:180px;
+        height:500px;
         width:50dvw;
         justify-content: center;
         background-size: cover;
@@ -23,7 +23,7 @@
         {
             position: relative;
             text-align: center;
-            font-size: 500%;
+            font-size: 1000%;
             color:aqua;
             opacity: .9;
         } 
@@ -45,7 +45,7 @@
         h1
         {
             color: darkblue;
-            Font-size:25px;
+            Font-size:100px;
             padding-right: 5%;
         }
     }
@@ -60,7 +60,7 @@
     justify-content: center;
     font-size: 20pt;   
     background-color: rgb(9, 9, 68);
-    height:60px;
+    height:200px;
     width:100dvw;
     #Lakes
     {
@@ -70,14 +70,14 @@
         align-items: center;
         background-color: inherit;
         cursor: pointer;
-        font-size: 2em;
+        font-size: 1em;
         height:100%;
         min-width:80px;
         width:33.3%;
         h1
         {
             color: darkcyan;
-            font-size: 1em;
+            font-size: 5em;
             text-decoration: none;
         }
         a
@@ -93,14 +93,14 @@
         align-items: center;
         background-color: inherit;
         cursor: pointer;
-        font-size: 2em;
+        font-size: 1em;
         height:100%;
         min-width:80px;
         width:33.3%;
         h1
         {
             color: darkcyan;
-            font-size: 1em;
+            font-size: 5em;
             text-decoration: none;
         }
         a
@@ -116,14 +116,14 @@
         align-items: center;
         background-color: inherit;
         cursor: pointer;
-        font-size: 2em;
+        font-size: 1em;
         height:100%;
         min-width:80px;
         width:33.3%;
         h1
         {
             color: darkcyan;
-            font-size: .8em;
+            font-size: 4em;
             text-decoration: none;
         }
         a
@@ -140,6 +140,7 @@
     display: flex;
     justify-content: center;
     background-image: url("https://th.bing.com/th/id/R.a61d96f23882c8e5a47ab16a6a7d7207?rik=QGLtMMZ1AoMqYw&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f06%2fOcean-underwater-light-wallpaper-hd.jpg&ehk=RLmSM8K8ZQQn3YDnpMQGZfb5E3dJHQENNRqudKJONlY%3d&risl=1&pid=ImgRaw&r=0");
+    background-size: cover;
     form
     {
         height: fit-content;
@@ -162,20 +163,68 @@
             align-self: center;
             padding-bottom: 20px;
             width:fit-content;
-            font-size: 2em;
+            font-size: 10em;
         }
         Label
         {
-            font-size: 200%;
+            font-size: 1200%;
             align-self: center;
             padding-Top: 20px;
             width:20%;
         }
         .submit
         {
-            font-size: 120%;
+            font-size: 800%;
             text-align: center;
             margin-top:30px;
+        }
+    }
+}
+@media screen and (max-width: 1700px)
+{
+    .Toptotal
+    {
+        .settings
+        {
+            column-gap: 10px;
+            h1
+            {
+
+                Font-size:12px;
+                padding-right: 5%;
+            }
+        }
+        .Top
+        {
+            h1
+            {
+                font-size: 300%;
+
+            } 
+        }
+    }
+    .Middle
+    {
+        #Lakes
+        {
+            h1
+            {
+                font-size: .4em;
+            }
+        }
+        #Rivers
+        {
+            h1
+            {
+                font-size: .4em;
+            }
+        }
+        #Add_Location
+        {
+            h1
+            {
+                font-size: .4em;
+            }
         }
     }
 }

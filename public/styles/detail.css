@@ -50,7 +50,7 @@
     width:100dvw;
     .Top
     {
-        height:400px;
+        height:600px;
         width:50dvw;
         justify-content: center;
         background-size: cover;
@@ -80,7 +80,7 @@
         h1
         {
             color: darkblue;
-            Font-size:75px;
+            Font-size:150px;
             padding-right: 5%;
         }
     }
@@ -97,7 +97,7 @@
         justify-content: space-between;
         position:relative;
         padding-top: 10px;
-        height:2000px;
+        height:4000px;
         width:100dvw;
         min-height: 900px;
         color: black;
@@ -114,14 +114,14 @@
                 h1
                 {
                     width:300px;
-                    font-size: 5em;
+                    font-size: 10em;
                     
                 }
                 button
                 {  
-                    width: 200px;
+                    width: 500px;
                     height:80%;
-                    font-size: 2em;
+                    font-size: 8em;
                 }  
             }
             img
@@ -137,7 +137,7 @@
             h2
             {
                 padding-top:10px;
-                font-size: 3em;
+                font-size: 6em;
             }
             .purchaseContainer
             {
@@ -171,9 +171,9 @@
                     }
                     .buy
                     {
-                        font-size: 2em;
-                        height: 75px;
-                        width:200px;
+                        font-size: 5em;
+                        height: 300px;
+                        width:400px;
                     }
                 }
             }
@@ -189,7 +189,7 @@
             overflow-y: scroll;
             h1
             {
-                font-size: 5em;
+                font-size: 8em;
             }
             a
             {
@@ -204,7 +204,7 @@
                 h1
                 {
                     padding:5px;
-                    font-size: 4em;
+                    font-size: 6em;
                     text-decoration: none;
                 } 
             }

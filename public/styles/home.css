@@ -82,7 +82,7 @@
         h1
         {
             color: darkblue;
-            Font-size:75px;
+            Font-size:150px;
             padding-right: 5%;
         }
     }
@@ -172,7 +172,7 @@
 .List
 {
     overflow-y: scroll;
-    Height:1200px;
+    Height:3000px;
     background-image: url("https://th.bing.com/th/id/R.a61d96f23882c8e5a47ab16a6a7d7207?rik=QGLtMMZ1AoMqYw&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f06%2fOcean-underwater-light-wallpaper-hd.jpg&ehk=RLmSM8K8ZQQn3YDnpMQGZfb5E3dJHQENNRqudKJONlY%3d&risl=1&pid=ImgRaw&r=0");
     .itemList
     { 
@@ -227,7 +227,7 @@
     }
 }
 
-@media screen and (max-width:1800px)
+@media screen and (max-width:1600px)
 {
     .StickyTop
     {
@@ -271,7 +271,6 @@
         }
         .settings
         {
-
             a{
                 text-decoration: none;
             }
@@ -281,9 +280,8 @@
             }
             h1
             {
-                color: darkblue;
-                Font-size:25px;
-                padding-right: 5%;
+                Font-size:75px;
+
             }
         }
     }

@@ -25,15 +25,8 @@ const app = express();
 app.use(express.json());
 // Middleware for parsing URL-encoded data
 app.use(express.urlencoded({ extended: true }));
-/* Configure the app to refresh the browser when nodemon restarts
---------------------------------------------------------------- */
-const liveReloadServer = livereload.createServer();
-liveReloadServer.server.once("connection", () => {
-    // wait for nodemon to fully restart before refreshing the page
-    setTimeout(() => {
-        liveReloadServer.refresh("/");
-    }, 100);
-});
+
+
 
 
 /* Configure the app (app.set)
@@ -45,7 +38,33 @@ app.set('views', path.join(__dirname, 'views'));
 /* Middleware (app.use)
 --------------------------------------------------------------- */
 app.use(express.static('public'))
-app.use(connectLiveReload());
+// Detect if running in a dev environment
+if (process.env.ON_HEROKU === 'false') {
+    // Configure the app to refresh the browser when nodemon restarts
+    const liveReloadServer = livereload.createServer();
+    liveReloadServer.server.once("connection", () => {
+        // wait for nodemon to fully restart before refreshing the page
+        setTimeout(() => {
+        liveReloadServer.refresh("/");
+        }, 100);
+    });
+    app.use(connectLiveReload());
+}
+if (process.env.ON_HEROKU === 'false') {
+// When a GET request is sent to `/seed`, the items collection is seeded
+app.get('/seed', async (req, res) => {
+    // Remove any existing items
+    const formerLocations = await db.Location.deleteMany({})
+    console.log(`Removed ${formerLocations.deletedCount} items`)
+    // Seed the items collection with the starter data
+    const newLocations = await db.Location.insertMany(db.seedLocations)
+    console.log(`Added ${db.seedLocations.length} items to be sold`)
+    //Redirect back to item gallery
+    res.redirect('/Location')
+})
+}
+
+
 
 
 /* Mount routes
