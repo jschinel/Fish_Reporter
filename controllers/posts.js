@@ -86,7 +86,8 @@ router.post('/update/:id/:postid', function (req, res) {
                         db.Location.findOneAndReplace({_id: req.params.id},singleItem[0])
                         .then
                         (
-                            res.redirect(`/Location/${req.params.id}`)
+
+                                res.redirect(`/Location/${req.params.id}`)  
                         )
                     }
                 }
@@ -112,7 +113,7 @@ router.get('/delete/:id/:postid', function (req, res) {
                     db.Location.findOneAndReplace({_id: req.params.id},singleItem[0])
                     .then
                     (
-                        res.redirect(`/Location/${req.params.id}`)
+                            res.redirect(`/Location/${req.params.id}`)  
                     )
                 }
             }

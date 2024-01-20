@@ -16,16 +16,35 @@ const db = require('../models')
 
 /* Routes
 --------------------------------------------------------------- */
-
-
 //////////////////////////// INDEX ROUTE ////////////////////////////////
 
 router.get('/', async function (req, res)
  {
         // console.log(req.query)
+        let filterObj = req.query
+        for(let key in filterObj)
+        {
 
-        let itemlist = await db.Location.find(req.query)
+            test=(filterObj[key])
+            if(test == '' || test == undefined)
+            {
+                delete filterObj[key]
+            }
+            if(key == 'Fish' && filterObj[key] != '' && filterObj[key] != undefined)
+            {
+                filterObj[key]=[filterObj[key]]
+            }
+        }
+        // console.log(filterObj) 
+        const itemlist = await db.Location.find(filterObj)
         res.render('home',{itemlist: itemlist})
+    })
+
+////////////////////////////  SHOW ROUTE  ////////////////////////////////
+
+router.get('/:id', async function (req, res) {
+    let singleItem = await db.Location.find({_id: req.params.id})
+    res.render('details',{singleItem: singleItem})
 })
 
 //////////////////////////// NEW ROUTE  ////////////////////////////////

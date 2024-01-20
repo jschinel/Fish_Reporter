@@ -21,9 +21,29 @@
             opacity: 1;
             display: flex;
             flex-flow: row;
+            justify-content: space-evenly;
             form
             {
-                display: flex
+                display:flex;
+                label
+                {
+                    font-size: 1em;
+                    padding-right: 30px;
+                    padding-left: 30px;
+                    border: 1px solid #faf9f9;
+                }
+                input
+                {
+                    width:100px;
+                    font-size: 1em;
+                    border: 1px solid hsl(0, 4%, 5%);
+                }
+                .submit
+                {
+                    padding-left: 30px;
+                    width:fit-content;
+                    border:none;
+                }
             }
         }
         .Filter
@@ -40,7 +60,7 @@
             form
             {
                 font-size: 40px;
-                display: none
+                display: none;
             }
         };
 }
@@ -75,6 +95,7 @@
         a{
             text-decoration: none;
             height:fit-content;
+            padding-right: 20px;
         }
         h1:hover
         {
@@ -174,7 +195,7 @@
 .List
 {
     overflow-y: scroll;
-    Height:3000px;
+    Height:100dvh;
     background-image: url("https://th.bing.com/th/id/R.a61d96f23882c8e5a47ab16a6a7d7207?rik=QGLtMMZ1AoMqYw&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f06%2fOcean-underwater-light-wallpaper-hd.jpg&ehk=RLmSM8K8ZQQn3YDnpMQGZfb5E3dJHQENNRqudKJONlY%3d&risl=1&pid=ImgRaw&r=0");
     .itemList
     { 

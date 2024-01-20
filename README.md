@@ -6,7 +6,11 @@ URI | Rest Route | HTTP Method | Crud Action | Description
 ---|---|---|---|---|
 | / | N/A | Get | read | Redirects to the spash page displaying all items
 | /seed | N/A | Get | Create/Destroy | Will delete all items in database and re-initialize with local data
-| / | Index | Get | Read | Displays all the items
+| /Location | Index | Get | Read | Displays all the items (Uses querry filters to sift through database)
+| /Location/:id | Show | Get | Read | Displays the details of the selected item
+| /Locaiton/add | New | Get | Read | Displays the form to create a new location
+| /Location/add | Create | Post | Create | Creates the new location in the database
+| /Update/:id | U
 |
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------

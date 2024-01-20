@@ -8,7 +8,7 @@ const locationSchema = new mongoose.Schema({
     Location_Type:{type:String, required: true},
     Name: { type: String, required: true },
     City: {type: String, required:false},
-    Fish: { type: String, required: false },
+    Fish: [String],
     Fish_Caught:{type:Number, required:false},
     Picture:{type: String}, 
     Posts:[postsSchema]

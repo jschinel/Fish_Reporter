@@ -15,7 +15,7 @@
     width:100dvw;
     .Top
     {
-        height:400px;
+        height:300px;
         width:50dvw;
         justify-content: center;
         background-size: cover;
@@ -37,6 +37,7 @@
         background: transparent;
         a{
             text-decoration: none;
+            padding-right: 20px;
         }
         h1:hover
         {
@@ -189,36 +190,38 @@
             } 
         }
     }
-    .Middle{
-    height:60px;
-    #PostDelete
+    .Middle
     {
-        font-size: 2em;
-        h1
+        height:60px;
+        #PostDelete
         {
+            font-size: 2em;
+            h1
+            {
 
-            font-size: 1em;
+                font-size: 1em;
+            }
+            a
+            {           
+                text-decoration: none;
+            }
         }
-        a
-        {           
-            text-decoration: none;
+        #PostEdit
+        {
+            font-size: 2em;
+            height:100%;
+            h1
+            {
+                color: darkcyan;
+                font-size: 1em;
+                text-decoration: none;
+            }
+            a
+            {           
+                text-decoration: none;
+            }
         }
     }
-    #PostEdit
-    {
-        font-size: 2em;
-        height:100%;
-        h1
-        {
-            color: darkcyan;
-            font-size: 1em;
-            text-decoration: none;
-        }
-        a
-        {           
-            text-decoration: none;
-        }
-    }}
     .itemList
     {
         .reviewContainer
@@ -253,28 +256,13 @@
             } 
         }
     }
-        .itemList
+    .itemList
     {
-        form
+        .reviewContainer
         {
-            padding-left: 30px;
-            padding-right: 30px;
-            input
+            h1
             {
-                font-size: 1em;
-            }
-            Label
-            {
-                font-size: 200%;
-                align-self: center;
-                padding-Top: 20px;
-                width:20%;
-            }
-            .submit
-            {
-                font-size: 120%;
-                text-align: center;
-                margin-top:30px;
+                font-size: 300%;
             }
         }
     }
@@ -317,6 +305,16 @@
             h1
             {
                 font-size: .7em;
+            }
+        }
+    }
+    .itemList
+    {
+        .reviewContainer
+        {
+            h1
+            {
+                font-size: 200%;
             }
         }
     }
