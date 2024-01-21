@@ -14,6 +14,8 @@ URI | Rest Route | HTTP Method | Crud Action | Description
 | /Location/UpdateEdit/:id | Update | Get | Use | Updates the selected database location
 | /Location/delete/:id | Delete | Get | Destroy | Deletes the location from the database
 
+<details>
+<summary> Route Table Details </summary>
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 URI | Rest Route | HTTP Method | Crud Action | Description
 ---|---|---|---|---|
@@ -107,11 +109,11 @@ URI | Rest Route | HTTP Method | Crud Action | Description
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-router.post('/add', (req, res) => {
-    console.log(req.body)
-    db.Location.create(req.body)
-        .then(() => res.redirect('/'))
-})
+router.post('/add', (req, res) => {\
+    console.log(req.body)\
+    db.Location.create(req.body)\
+        .then(() => res.redirect('/'))\
+})\
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -121,13 +123,13 @@ URI | Rest Route | HTTP Method | Crud Action | Description
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-router.get('/edit/:id', function (req, res) {
-    db.Location.find({_id: req.params.id})
-    .then
-    (       
-        singleItem =>res.render('Edit',{singleItem: singleItem})
-    )
-})
+router.get('/edit/:id', function (req, res) {\
+    db.Location.find({_id: req.params.id})\
+    .then\
+    (\
+        singleItem =>res.render('Edit',{singleItem: singleItem})\
+    )\
+})\
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -137,11 +139,13 @@ URI | Rest Route | HTTP Method | Crud Action | Description
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-router.get('/Update/:id', async function (req, res) {
-    await db.Location.updateOne({_id: req.params.id},{ $inc: {Fish_Caught: +1}})
-    res.redirect(`/Location/${req.params.id}`)
-})
+router.get('/Update/:id', async function (req, res) {\
+    await db.Location.updateOne({_id: req.params.id},{ $inc: {Fish_Caught: +1}})\
+    res.redirect(`/Location/${req.params.id}`)\
+})\
 
+
+</details>
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 									ROUTE TABLE (Posts)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
