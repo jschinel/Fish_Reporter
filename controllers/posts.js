@@ -123,18 +123,6 @@ router.get('/delete/:id/:postid', function (req, res) {
 })
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 router.post('/:id', (req, res) => {
     db.Location.findByIdAndUpdate(
         req.params.id,

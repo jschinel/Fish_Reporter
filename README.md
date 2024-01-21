@@ -1,6 +1,6 @@
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-									ROUTE TABLE
+									ROUTE TABLE (Location)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 URI | Rest Route | HTTP Method | Crud Action | Description
 ---|---|---|---|---|
@@ -13,6 +13,20 @@ URI | Rest Route | HTTP Method | Crud Action | Description
 | /Location/edit/:id | Edit | Get | Read | Displays the form to edit a location
 | /Location/UpdateEdit/:id | Update | Get | Use | Updates the selected database location
 | /Location/delete/:id | Delete | Get | Destroy | Deletes the location from the database
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+									ROUTE TABLE (Posts)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+URI | Rest Route | HTTP Method | Crud Action | Description
+---|---|---|---|---|
+| /Posts/:id | Show | Get | Read | Displays the details of the selected Post
+| /Posts/add | New | Get | Read | Displays the form to create a new post
+| /Posts/:id | Create | Post | Create | Creates the new posts linked to a location
+| /Posts/edit/:id | Edit | Get | Read | Displays the form to edit a post
+| /Posts/UpdateEdit/:id | Update | Get | Use | Updates the selected database location
+| /Posts/delete/:id | Delete | Get | Destroy | Deletes the post from a location
+
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 URI | Rest Route | HTTP Method | Crud Action | Description
