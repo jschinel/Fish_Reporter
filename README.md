@@ -1,3 +1,52 @@
+<details>
+<summary> Welcome to Poseidens Index </summary>
+[Home Page](public/styles/home.css)
+</details>
+
+<details>
+<summary> Technologies Used </summary>
+Express , Mongoose , livereload , connect-livereload, ejs
+</details>
+
+<details>
+<summary> Installation Instructions </summary>
+There is a couple of things to know before making changes to this project.
+
+First we will initialize and installed the according packages necessary. Inside your project terminal run the following commands to complete this.
+
+npm init -y
+npm i express ejs mongoose dotenv livereload connect-livereload
+
+After this is completed a mongoDB will be necessary to store data. This is done by created a .env file.
+Once created you will need to create a variable inside this file for your mongoDB connection. See the example listed below
+
+MONGODBURI="mongodb+srv://YourUsername:YourPassword@cluster0.ruhgrt4.mongodb.net/YourCollection"
+
+NOTICE!!!!! You will have to replace "YourUsername:YourPassword" and "YourCollection" with your personal mongoDB information
+
+For further information please reference the index.js file located in the models folder. (Refer to lines 7-8)
+{
+// Require the Mongoose package & your environment configuration
+const mongoose = require('mongoose');
+require('dotenv').config()
+
+// Connect to MongoDB Atlas
+mongoose.connect(process.env.MONGODBURI);
+const db = mongoose.connection
+
+db.on('connected', function () {
+    console.log(`Connected to MongoDB ${db.name} at ${db.host}:${db.port}`);
+});
+
+// Export models & seed data
+module.exports = {
+    Location: require('./Locations'),
+    Posts: require('./posts'),
+    seedLocations: require('./seed')
+}
+}
+
+</details>
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ROUTE TABLE (Location)
@@ -315,6 +364,8 @@ router.get('/delete/:id/:postid', function (req, res) {\
 })\
 
 </details>
+
+
 
 
 //////////////////////////////////
