@@ -14,6 +14,133 @@ URI | Rest Route | HTTP Method | Crud Action | Description
 | /Location/UpdateEdit/:id | Update | Get | Use | Updates the selected database location
 | /Location/delete/:id | Delete | Get | Destroy | Deletes the location from the database
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+URI | Rest Route | HTTP Method | Crud Action | Description
+---|---|---|---|---|
+| / | N/A | Get | read | Redirects to the spash page displaying all items
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+app.get('/', async function (req, res) {\
+    res.redirect('/Location')\
+});\
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+URI | Rest Route | HTTP Method | Crud Action | Description
+---|---|---|---|---|
+| /seed | N/A | Get | Create/Destroy | Will delete all items in database and re-initialize with local data
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+app.get('/seed', async (req, res) => {\
+    // Remove any existing items\
+    const formerLocations = await db.Location.deleteMany({})\
+    console.log(`Removed ${formerLocations.deletedCount} items`)\
+    // Seed the items collection with the starter data\
+    const newLocations = await db.Location.insertMany(db.seedLocations)\
+    console.log(`Added ${db.seedLocations.length} items to be sold`)\
+    //Redirect back to item gallery\
+    res.redirect('/Location')\
+})\
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+URI | Rest Route | HTTP Method | Crud Action | Description
+---|---|---|---|---|
+| /Location | Index | Get | Read | Displays all the items (Uses querry filters to sift through database)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+router.get('/', async function (req, res)\
+ {\
+        // console.log(req.query)\
+        let filterObj = req.query\
+        for(let key in filterObj)\
+        {\
+            test=(filterObj[key])\
+            if(test == '' || test == undefined)\
+            {\
+                delete filterObj[key]\
+            }\
+            if(key == 'Fish' && filterObj[key] != '' && filterObj[key] != undefined)\
+            {\
+                filterObj[key]=[filterObj[key]]\
+            }\
+        }\
+        // console.log(filterObj) \
+        const itemlist = await db.Location.find(filterObj)\
+        res.render('home',{itemlist: itemlist})\
+    })\
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+URI | Rest Route | HTTP Method | Crud Action | Description
+---|---|---|---|---|
+| /Location/:id | Show | Get | Read | Displays the details of the selected item
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+router.get('/:id', async function (req, res) {/
+    let singleItem = await db.Location.find({_id: req.params.id})/
+    res.render('details',{singleItem: singleItem})/
+})/
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+URI | Rest Route | HTTP Method | Crud Action | Description
+---|---|---|---|---|
+| /Locaiton/add | New | Get | Read | Displays the form to create a new location
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+router.get('/add', async function (req, res)/
+ {/
+        // console.log(req.query)/
+        res.render('Form')/
+})/
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+URI | Rest Route | HTTP Method | Crud Action | Description
+---|---|---|---|---|
+| /Location/:id | Create | Post | Create | Creates the new location in the database
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+router.post('/add', (req, res) => {
+    console.log(req.body)
+    db.Location.create(req.body)
+        .then(() => res.redirect('/'))
+})
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+URI | Rest Route | HTTP Method | Crud Action | Description
+---|---|---|---|---|
+| /Location/edit/:id | Edit | Get | Read | Displays the form to edit a location
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+router.get('/edit/:id', function (req, res) {
+    db.Location.find({_id: req.params.id})
+    .then
+    (       
+        singleItem =>res.render('Edit',{singleItem: singleItem})
+    )
+})
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+URI | Rest Route | HTTP Method | Crud Action | Description
+---|---|---|---|---|
+| /Location/edit/:id | Edit | Get | Read | Displays the form to edit a location
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+router.get('/Update/:id', async function (req, res) {
+    await db.Location.updateOne({_id: req.params.id},{ $inc: {Fish_Caught: +1}})
+    res.redirect(`/Location/${req.params.id}`)
+})
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 									ROUTE TABLE (Posts)
@@ -35,9 +162,27 @@ URI | Rest Route | HTTP Method | Crud Action | Description
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-app.get('/', async function (req, res) {\
-    res.redirect('/Catalog')\
-});\
+router.get('/', async function (req, res)
+ {
+        // console.log(req.query)
+        let filterObj = req.query
+        for(let key in filterObj)
+        {
+
+            test=(filterObj[key])
+            if(test == '' || test == undefined)
+            {
+                delete filterObj[key]
+            }
+            if(key == 'Fish' && filterObj[key] != '' && filterObj[key] != undefined)
+            {
+                filterObj[key]=[filterObj[key]]
+            }
+        }
+        // console.log(filterObj) 
+        const itemlist = await db.Location.find(filterObj)
+        res.render('home',{itemlist: itemlist})
+    })
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
