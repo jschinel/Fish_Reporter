@@ -16,6 +16,7 @@ URI | Rest Route | HTTP Method | Crud Action | Description
 
 <details>
 <summary> Route Table Details </summary>
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 URI | Rest Route | HTTP Method | Crud Action | Description
 ---|---|---|---|---|
