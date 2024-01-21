@@ -9,9 +9,10 @@ URI | Rest Route | HTTP Method | Crud Action | Description
 | /Location | Index | Get | Read | Displays all the items (Uses querry filters to sift through database)
 | /Location/:id | Show | Get | Read | Displays the details of the selected item
 | /Locaiton/add | New | Get | Read | Displays the form to create a new location
-| /Location/add | Create | Post | Create | Creates the new location in the database
-| /Update/:id | U
-|
+| /Location/:id | Create | Post | Create | Creates the new location in the database
+| /Location/edit/:id | Edit | Get | Read | Displays the form to edit a location
+| /Location/UpdateEdit/:id | Update | Get | Use | Updates the selected database location
+| /Location/delete/:id | Delete | Get | Destroy | Deletes the location from the database
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 URI | Rest Route | HTTP Method | Crud Action | Description
