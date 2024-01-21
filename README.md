@@ -15,7 +15,7 @@ URI | Rest Route | HTTP Method | Crud Action | Description
 | /Location/delete/:id | Delete | Get | Destroy | Deletes the location from the database
 
 <details>
-<summary> Route Table Details </summary>
+<summary> Location Route Table Details </summary>
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 URI | Rest Route | HTTP Method | Crud Action | Description
@@ -160,6 +160,8 @@ URI | Rest Route | HTTP Method | Crud Action | Description
 | /Posts/UpdateEdit/:id | Update | Get | Use | Updates the selected database location
 | /Posts/delete/:id | Delete | Get | Destroy | Deletes the post from a location
 
+<details>
+<summary> Posts Route Table Details </summary>
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 URI | Rest Route | HTTP Method | Crud Action | Description
@@ -312,6 +314,7 @@ router.get('/delete/:id/:postid', function (req, res) {\
     .catch(() => res.send('404 Error: Page not Found'))\
 })\
 
+</details>
 
 
 //////////////////////////////////
