@@ -17,6 +17,10 @@ const db = require('../models')
 // /* Routes
 // --------------------------------------------------------------- */
 
+
+////////////////////////////  SHOW ROUTE  ////////////////////////////////
+
+
 router.get('/show/:id/:postid', function (req, res) {
     db.Location.find({_id: req.params.id})
     .then
@@ -36,6 +40,10 @@ router.get('/show/:id/:postid', function (req, res) {
 })
 
 
+
+//////////////////////////// NEW ROUTE  ////////////////////////////////
+
+
 router.get('/:id', function (req, res) {
     db.Location.find({_id: req.params.id})
         .then
@@ -47,6 +55,24 @@ router.get('/:id', function (req, res) {
 
 
 
+////////////////////////////  CREATE ROUTE  ////////////////////////////////
+
+
+router.post('/:id', (req, res) => {
+    db.Location.findByIdAndUpdate(
+        req.params.id,
+        { $push: { Posts: req.body } },
+        { new: true }
+    )
+    .then
+    (
+        res.redirect(`/Location/${req.params.id}`)
+    )
+
+});
+
+
+////////////////////////////  EDIT ROUTE  ////////////////////////////////
 
 
 router.get('/edit/:id/:postid', function (req, res) {
@@ -69,6 +95,7 @@ router.get('/edit/:id/:postid', function (req, res) {
 })
 
 
+////////////////////////////  UPDATE ROUTE  ////////////////////////////////
 
 
 router.post('/update/:id/:postid', function (req, res) {
@@ -77,7 +104,6 @@ router.post('/update/:id/:postid', function (req, res) {
         (
             singleItem =>        
             {
-                // console.log(singleItem[0])
                 for(let i = 0 ; i < singleItem[0].Posts.length ; i ++ )
                 {
                     if(singleItem[0].Posts[i].id==req.params.postid)
@@ -97,6 +123,7 @@ router.post('/update/:id/:postid', function (req, res) {
 })
 
 
+////////////////////////////  DESTROY ROUTE  ////////////////////////////////
 
 router.get('/delete/:id/:postid', function (req, res) {
     db.Location.find({_id: req.params.id})
@@ -123,18 +150,6 @@ router.get('/delete/:id/:postid', function (req, res) {
 })
 
 
-router.post('/:id', (req, res) => {
-    db.Location.findByIdAndUpdate(
-        req.params.id,
-        { $push: { Posts: req.body } },
-        { new: true }
-    )
-    .then
-    (
-        res.redirect(`/Location/${req.params.id}`)
-    )
-
-});
 
 
 

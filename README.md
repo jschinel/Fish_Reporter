@@ -149,7 +149,7 @@ router.get('/Update/:id', async function (req, res) {\
 </details>
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-									ROUTE TABLE (Posts)
+ROUTE TABLE (Posts)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 URI | Rest Route | HTTP Method | Crud Action | Description
 ---|---|---|---|---|
@@ -164,190 +164,41 @@ URI | Rest Route | HTTP Method | Crud Action | Description
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 URI | Rest Route | HTTP Method | Crud Action | Description
 ---|---|---|---|---|
-| / | N/A | Get | read | Redirects to the spash page displaying all items
+| /Posts/:id | Show | Get | Read | Displays the details of the selected Post
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-router.get('/', async function (req, res)
- {
-        // console.log(req.query)
-        let filterObj = req.query
-        for(let key in filterObj)
-        {
-
-            test=(filterObj[key])
-            if(test == '' || test == undefined)
-            {
-                delete filterObj[key]
-            }
-            if(key == 'Fish' && filterObj[key] != '' && filterObj[key] != undefined)
-            {
-                filterObj[key]=[filterObj[key]]
-            }
-        }
-        // console.log(filterObj) 
-        const itemlist = await db.Location.find(filterObj)
-        res.render('home',{itemlist: itemlist})
-    })
-
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-URI | Rest Route | HTTP Method | Crud Action | Description
----|---|---|---|---|
-| /seed | N/A | Get | Create/Destroy | Will delete all items in database and re-initialize with local data
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-app.get('/seed', async (req, res) => {\
-    // Remove any existing items\
-    const formerItems = await db.Product.deleteMany({})\
-    console.log(`Removed ${formerItems.deletedCount} items`)\
-    // Seed the items collection with the starter data\
-    const newProducts = await db.Product.insertMany(db.seedProduct)\
-    console.log(`Added ${db.seedProduct.length} items to be sold`)\
-    //Redirect back to item gallery\
-    res.redirect('/Catalog')\
-})\
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-URI | Rest Route | HTTP Method | Crud Action | Description
----|---|---|---|---|
-| /Catalog | Index | Get | Read | Displays all the items
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-router.get('/', async function (req, res) {\
-    const itemlist = await db.Product.find({})\
-    res.render('home',{itemlist: itemlist})\
-})\
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-URI | Rest Route | HTTP Method | Crud Action | Description
----|---|---|---|---|
-| /Catalog/item/:id | Show | Get | Read | Displays the details of a specific item
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-router.get('/item/:id', function (req, res) {\
-        db.Product.find({_id: req.params.id})\
-            .then\
-            (\
-                singleItem =>res.render('details',{singleItem: singleItem})\
-            )\
-            .catch(() => res.send('404 Error: Page Not Found'))\
-})\
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-URI | Rest Route | HTTP Method | Crud Action | Description
----|---|---|---|---|
-| /Catalog/delete/:id | destroy | get | delete | Deletes a specific item dependant on the ID
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-router.get('/delete/:id', function (req, res) {\
-    {\
-        db.Product.findOneAndDelete({_id: req.params.id})\
-            .then(() => {\
-                db.Product.find({})\
-                .then(newItems => \
-                res.render('home',{itemlist: newItems})\
-                )\
-            })\
-            .catch(() => res.send('404 Error: Page Not Found'))\
-    }\
-})\
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-URI | Rest Route | HTTP Method | Crud Action | Description
----|---|---|---|---|
-| /Catalog/add  | new | Get | Read | This will display the form in order to add a product to the database
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-router.get('/add', function (req, res) {\
-        res.render('Form')\
-})\
-
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-URI | Rest Route | HTTP Method | Crud Action | Description
----|---|---|---|---|
-| /Catalog/edit/:id | edit  | GET | Read | This will bring up the edit form to change a product on the DB
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-router.get('/edit/:id', function (req, res) {\
-    db.Product.find({_id: req.params.id})\
+router.get('/show/:id/:postid', function (req, res) {\
+    db.Location.find({_id: req.params.id})\
     .then\
-    (\
-        singleItem =>res.render('Edit',{singleItem: singleItem})\
-    )\
-})\
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-URI | Rest Route | HTTP Method | Crud Action | Description
----|---|---|---|---|
-| /Catalog/update/:id | update | Patch | Use |  This actually go and change teh item in the database
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-router.get('/update/:id', function (req, res) {\
-    {\
-        db.Product.find({_id: req.params.id})\
-        .then(singleItem => {\
-            if(singleItem[0].Quantity>0)\
+    (  singleItem => \
+        {\
+            for(let i = 0 ; i < singleItem[0].Posts.length ; i ++ )\
             {\
-                let newValue = singleItem[0].Quantity -1;\
-                db.Product.findOneAndUpdate({_id: req.params.id},{Quantity: newValue})\
-                .then\
-                (\
-                    db.Product.find({_id: req.params.id})\
-                    .then\
-                    (\
-                        singleItem =>res.render('details',{singleItem: singleItem})\
-                    )\
-                )\
+                if(singleItem[0].Posts[i].id==req.params.postid)\
+                {\
+                    const postData = singleItem[0].Posts[i];\
+                    res.render('posts_details',{singlePost: postData,singleItem: singleItem[0]})\
+                }\
             }\
-            if(singleItem[0].Quantity<=0)\
-            {\
-                let newValue = singleItem[0].Quantity;\
-            db.Product.findOneAndUpdate({_id: req.params.id},{Quantity: newValue})\
-            .then\
-            (\
-                db.Product.find({_id: req.params.id})\
-                .then\
-                (\
-                    singleItem =>res.render('details',{singleItem: singleItem})\
-                )\
-            )}\
-        })\
-        .catch(() => res.send('404 Error: Page Not Found'))\
-    }\
+        }\
+    )\
+    .catch(() => res.send('404 Error: Page Not Found'))\
 })\
-
-
-
-
-
-
-
-
-
-
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 URI | Rest Route | HTTP Method | Crud Action | Description
 ---|---|---|---|---|
-| /Review/:id | new	| GET | Read | Display the form to create a new post
+| /Posts/add | New | Get | Read | Displays the form to create a new post
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 router.get('/:id', function (req, res) {\
-    db.Product.find({_id: req.params.id})\
+    db.Location.find({_id: req.params.id})\
         .then\
         (\
-            singleItem =>res.render('review',{reviewItem: singleItem})\
+            singleItem =>res.render('posts_add',{reviewItem: singleItem})\
         )\
         .catch(() => res.send('404 Error: Page Not Found'))\
 })\
@@ -355,24 +206,115 @@ router.get('/:id', function (req, res) {\
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 URI | Rest Route | HTTP Method | Crud Action | Description
 ---|---|---|---|---|
-| /Review/postnew/:id | create | post | Read | Will actually create the new post to a product
+| /Posts/:id | Create | Post | Create | Creates the new posts linked to a location
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-router.post('/postnew/:id', (req, res) => {\
-    db.Product.findByIdAndUpdate(\
+router.post('/:id', (req, res) => {\
+    db.Location.findByIdAndUpdate(\
         req.params.id,\
-        { $push: { Reviews: req.body } },\
+        { $push: { Posts: req.body } },\
         { new: true }\
     )\
     .then\
     (\
-        res.redirect(`/Catalog/item/${req.params.id}`)\
+        res.redirect(`/Location/${req.params.id}`)\
     )\
-\
 });\
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+URI | Rest Route | HTTP Method | Crud Action | Description
+---|---|---|---|---|
+| /Posts/edit/:id | Edit | Get | Read | Displays the form to edit a post
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+router.get('/edit/:id/:postid', function (req, res) {\
+    db.Location.find({_id: req.params.id})\
+        .then\
+        (\
+            singleItem =>\
+            {\
+                for(let i = 0 ; i < singleItem[0].Posts.length ; i ++ )\
+                {\
+                    if(singleItem[0].Posts[i].id==req.params.postid)\
+                    {\
+                        const postData = singleItem[0].Posts[i];\
+                        res.render('post_details_Edit',{singlePost: postData,singleItem: singleItem[0]})\
+                    }\
+                }\
+            }\
+        )\
+        .catch(() => res.send('404 Error: Page Not Found'))\
+})\
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+URI | Rest Route | HTTP Method | Crud Action | Description
+---|---|---|---|---|
+| /Posts/UpdateEdit/:id | Update | Get | Use | Updates the selected database location
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+router.post('/update/:id/:postid', function (req, res) {\
+    db.Location.find({_id: req.params.id})\
+        .then\
+        (\
+            singleItem =>\
+            {\
+                for(let i = 0 ; i < singleItem[0].Posts.length ; i ++ )\
+                {\
+                    if(singleItem[0].Posts[i].id==req.params.postid)\
+                    {\
+                        singleItem[0].Posts[i] = req.body\
+                        db.Location.findOneAndReplace({_id: req.params.id},singleItem[0])\
+                        .then\
+                        (\
+                                res.redirect(`/Location/${req.params.id}`)\
+                        )\
+                    }\
+                }\
+            }\
+        )\
+        .catch(() => res.send('404 Error: Page Not Found'))\
+})\
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+URI | Rest Route | HTTP Method | Crud Action | Description
+---|---|---|---|---|
+| /Posts/delete/:id | Delete | Get | Destroy | Deletes the post from a location
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+router.get('/delete/:id/:postid', function (req, res) {\
+    db.Location.find({_id: req.params.id})\
+    .then\
+    (\
+        singleItem =>\
+        {\
+            // console.log(singleItem[0])\
+            for(let i = 0 ; i < singleItem[0].Posts.length ; i ++ )\
+            {\
+                if(singleItem[0].Posts[i].id==req.params.postid)\
+                {\
+                    singleItem[0].Posts.splice(i,1);\
+                    db.Location.findOneAndReplace({_id: req.params.id},singleItem[0])\
+                    .then\
+                    (\
+                            res.redirect(`/Location/${req.params.id}`)\
+                    )\
+                }\
+            }\
+        }\
+    )\
+    .catch(() => res.send('404 Error: Page not Found'))\
+})\
+
+
+
+//////////////////////////////////
 
 #Framework 1 Item Gallery (Index)('home')('/Catalog')
 
