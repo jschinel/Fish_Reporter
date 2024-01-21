@@ -1,9 +1,52 @@
+
+![Home Page](public/Pictures/Website/Home.png)
+
+The intentions of the website is to give the user quick and easy access to a multitude of fishing information for any lake. The user will also have access to adding locations or posting fish he caught in at a given location! With this we can all help each other to never get skunked again!
+ 
+Follow the link below to find your next fishing spot!
+
+https://fishfinder-b9950a38c220.herokuapp.com/Location
+
 <details>
 <summary> Welcome to Poseidens Index </summary>
 
 ![Home Page](public/Pictures/Website/Home.png)
 
 The intentions of the website is to give the user quick and easy access to a multitude of fishing information for any lake. The user will also have access to adding locations or posting fish he caught in at a given location! With this we can all help each other to never get skunked again!
+
+<details>
+<summary> Navigation </summary>
+This will display each page of this website. Follow the number and color coding for a detailed description of each section.
+
+ <details>
+ <summary> Home </summary>
+ <p style="color:red">1A - The home button will always bring you back to the main page and remove all filters. Every location item will be shown within the 2B container
+ 1B - The Lakes and Rivers are quick filter tabs that will change 2B container to ony show the corresponding location types.</p>
+
+ 2A - Use this button to add a new location!! Never be afraid to expand the database and help out your fellow fishers.
+ 2B - Here you will see all the listed items displayed according to the filters that are implemented.
+
+ 3A - For further item filtering you can use this section.
+
+
+ </details>
+
+ <details>
+ <summary> Details </summary>
+
+ </details>
+
+  <details>
+ <summary> Posts </summary>
+
+ </details>
+
+  <details>
+ <summary> Form </summary>
+
+ </details>
+
+</details>
 
 </details>
 
