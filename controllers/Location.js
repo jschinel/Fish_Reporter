@@ -30,10 +30,6 @@ router.get('/', async function (req, res)
             {
                 delete filterObj[key]
             }
-            if(key == 'Fish' && filterObj[key] != '' && filterObj[key] != undefined)
-            {
-                filterObj[key]=[filterObj[key]]
-            }
         }
         // console.log(filterObj) 
         const itemlist = await db.Location.find(filterObj)
