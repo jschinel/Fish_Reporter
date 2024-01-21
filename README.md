@@ -7,49 +7,73 @@ Follow the link below to find your next fishing spot!
 
 https://fishfinder-b9950a38c220.herokuapp.com/Location
 
-<details>
-<summary> Welcome to Poseidens Index </summary>
 
-![Home Page](public/Pictures/Website/Home.png)
+<h1>User Stories</h1>
+-As a user i want to be able to review different fishing areas to see which kind of fish and how well the fishing is doing in a certain lake or river.
 
-The intentions of the website is to give the user quick and easy access to a multitude of fishing information for any lake. The user will also have access to adding locations or posting fish he caught in at a given location! With this we can all help each other to never get skunked again!
+-As a full stack developer i want to see a MEN stack layout with all the Restful Routes and CRUD operations being used.
 
+-As a front end developer i want to see responsiveness and visual auesthetics on the webpage along with a natural flow of navigation.
+<br>
+<h1>User Interface</h1>
 <details>
 <summary> Navigation </summary>
 This will display each page of this website. Follow the number and color coding for a detailed description of each section.
 
  <details>
  <summary> Home </summary>
- <p style="color:red">1A - The home button will always bring you back to the main page and remove all filters. Every location item will be shown within the 2B container
- 1B - The Lakes and Rivers are quick filter tabs that will change 2B container to ony show the corresponding location types.</p>
 
- 2A - Use this button to add a new location!! Never be afraid to expand the database and help out your fellow fishers.
- 2B - Here you will see all the listed items displayed according to the filters that are implemented.
+![Alt text](public/Pictures/Website/Home_Nav.png)
+<p style="color:red">1A - The edit button will bring the user to the edit form for the current post selected<br>
+ 1B - The delete button will delete the current post from the location.</p>
 
- 3A - For further item filtering you can use this section.
-
-
- </details>
-
- <details>
- <summary> Details </summary>
-
- </details>
-
-  <details>
- <summary> Posts </summary>
-
- </details>
-
-  <details>
- <summary> Form </summary>
-
- </details>
+<p style="color:Yellow">2A - Here you see the current post you have selected</p.>
 
 </details>
 
+<details>
+<summary> Details </summary>
+
+ ![Alt text](public/Pictures/Website/Details_Nav.png)
+ <p style="color:red">1A - The edit button will bring you to the form page for editing the current location<br>
+ 1B - The delete button will delete the location from the database<br>
+ 1C - The post review button will bring the user to the form page to add a post </p>
+
+<p style="color:Yellow">2A - Displays all the details about the current item selected.</p.>
+
+<p style="color:Green">3A - Displays the all the current posts related to this location.<br>
+NOTE - This section will be moved below Section 2A when the screen is smaller than 900px.
+
+<p style="color:aqua">4A - This is the layout of a general post. The most recent post will always be at the top of the list. Any post can be clicked on to edit or delete<br>
 </details>
 
+<details>
+<summary> Posts </summary>
+
+![Alt text](public/Pictures/Website/Post_Nav.png)
+ <p style="color:red">1A - The edit button will bring you to the form page for editing the current location<br>
+ 1B - The delete button will delete the location from the database<br>
+ 1C - The post review button will bring the user to the form page to add a post </p>
+
+<p style="color:Yellow">2A - Displays all the details about the current item selected.</p.>
+
+</details>
+
+<details>
+<summary> Form </summary>
+<h1>Location Form </h1>
+Please fill out all fields display on the location form. When done press the submit button and your new location will be added to the database
+
+![Alt text](public/Pictures/Website/Location_Form.png)
+<h1> Post Form </h1>
+Please fill out all fields display on the post form. When done press the submit button and your new post will be added to the locations detail page.
+
+![Alt text](public/Pictures/Website/Post_Form.png)
+</details>
+
+</details>
+<br>
+<h1>Technical Data</h1>
 <details>
 <summary> Technologies Used </summary>
 Express , Mongoose , livereload , connect-livereload, ejs
@@ -416,20 +440,3 @@ router.get('/delete/:id/:postid', function (req, res) {\
 
 </details>
 </details>
-
-
-
-//////////////////////////////////
-
-#Framework 1 Item Gallery (Index)('home')('/Catalog')
-
-![Index_page](./Index.page.png)
-
-
-#Framework 2 Item Details (Show)('details')('/Catalog/item/ (Item id number) ')
-
-![Details_page](./Details.page.png)
-
-#Framework 3 Item Form for Updating or Adding (Creat / Update) (/Catalog/add') (Catalog/edit')
-
-![Details_page](./Form_Page.page.png)

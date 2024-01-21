@@ -40,19 +40,20 @@ router.get('/', async function (req, res)
         res.render('home',{itemlist: itemlist})
     })
 
+    
+//////////////////////////// NEW ROUTE  ////////////////////////////////
+
+router.get('/add', async function (req, res)
+{
+       // console.log(req.query)
+       res.render('Form')
+})
+
 ////////////////////////////  SHOW ROUTE  ////////////////////////////////
 
 router.get('/:id', async function (req, res) {
     let singleItem = await db.Location.find({_id: req.params.id})
     res.render('details',{singleItem: singleItem})
-})
-
-//////////////////////////// NEW ROUTE  ////////////////////////////////
-
-router.get('/add', async function (req, res)
- {
-        // console.log(req.query)
-        res.render('Form')
 })
 
 
