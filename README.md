@@ -1,6 +1,8 @@
 <details>
 <summary> Welcome to Poseidens Index </summary>
-[Home Page](public/styles/home.css)
+![Home Page](public/Pictures/Website/Home.png)
+The intentions of the website is to give the user quick and easy access to a multitude of fishing information for any lake. The user will also have access to adding locations or posting fish he caught in at a given location! With this we can all help each other to never get skunked again!
+
 </details>
 
 <details>
@@ -33,8 +35,8 @@ const mongoose = require('mongoose');\
 require('dotenv').config()\
 \
 // Connect to MongoDB Atlas\
-mongoose.connect(process.env.MONGODBURI);\
-const db = mongoose.connection\
+>mongoose.connect(process.env.MONGODBURI);\
+>const db = mongoose.connection\
 \
 db.on('connected', function () {\
     console.log(`Connected to MongoDB ${db.name} at ${db.host}:${db.port}`);\
@@ -46,11 +48,11 @@ module.exports = {\
     Posts: require('./posts'),\
     seedLocations: require('./seed')\
 }\
-}\
-
+}
 </details>
 </details>
-
+<details>
+<summary> Routes </summary>
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ROUTE TABLE (Location)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -367,7 +369,7 @@ router.get('/delete/:id/:postid', function (req, res) {\
 })\
 
 </details>
-
+</details>
 
 
 
