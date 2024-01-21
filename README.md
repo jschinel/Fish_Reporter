@@ -26,6 +26,7 @@ NOTICE!!!!! You will have to replace "YourUsername:YourPassword" and "YourCollec
 
 For further information please reference the index.js file located in the models folder. (Refer to lines 7-8)
 <details>
+
 {\
 // Require the Mongoose package & your environment configuration\
 const mongoose = require('mongoose');\
@@ -46,6 +47,7 @@ module.exports = {\
     seedLocations: require('./seed')\
 }\
 }\
+
 </details>
 </details>
 
