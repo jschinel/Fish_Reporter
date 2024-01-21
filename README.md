@@ -1,7 +1,7 @@
 
 ![Home Page](public/Pictures/Website/Home.png)
 
-The intentions of the website is to give the user quick and easy access to a multitude of fishing information for any lake. The user will also have access to adding locations or posting fish he caught in at a given location! With this we can all help each other to never get skunked again!
+The intentions of the website is to give the user quick and easy access to a multitude of fishing information for any lake. The user will also have access to adding locations or posting fish he caught at a given location! With this we can all help each other to never get skunked again!
  
 Follow the link below to find your next fishing spot!
 
@@ -9,11 +9,19 @@ https://fishfinder-b9950a38c220.herokuapp.com/Location
 
 
 <h1>User Stories</h1>
+
+ <details>
+ <summary> User </summary>
 -As a user i want to be able to review different fishing areas to see which kind of fish and how well the fishing is doing in a certain lake or river.
-
+ </details>
+ <details>
+ <summary> Full-Stack Developer </summary>
 -As a full stack developer i want to see a MEN stack layout with all the Restful Routes and CRUD operations being used.
-
+ </details>
+  <details>
+ <summary> Front-End Devekoper </summary>
 -As a front end developer i want to see responsiveness and visual auesthetics on the webpage along with a natural flow of navigation.
+ </details>
 <br>
 <h1>User Interface</h1>
 <details>
@@ -440,3 +448,13 @@ router.get('/delete/:id/:postid', function (req, res) {\
 
 </details>
 </details>
+<br>
+<h1>Extra</h1>
+ <details>
+ <summary> Struggles </summary>
+ <p> While trying to set up the filtering of this website i ran into a couple problems with using the querry parameters as the filter. There is a little more research needed before i can make sure i use the right mongo db operators and correct layout of my req.query parameters for the arrays.<p>
+ </details>
+ <details>
+ <summary> Future Design </summary>
+ <p>In the future i will be panning on connecting this to an api. Hopefully one that would have the lake or river class,type,etc. along with possibly have profile structure that could connect to other profiles (friends) in whom you can share private posts<p>
+ </details>

@@ -6,41 +6,41 @@
 }
 .StickyTop
 {
-        position: -webkit-sticky; /* Safari */
-        position: sticky;
-        top: 0;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-flow: column;
+    background-image: url('https://media.istockphoto.com/photos/storm-at-night-picture-id456067599?k=6&m=456067599&s=612x612&w=0&h=UM0zY7MuXx0SXau7E6SVPbYfcTLuvO4g5fv2FxRqkgY=');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    .Filter:hover
+    {
+        opacity: 1;
         display: flex;
-        flex-flow: column;
-        background-image: url('https://media.istockphoto.com/photos/storm-at-night-picture-id456067599?k=6&m=456067599&s=612x612&w=0&h=UM0zY7MuXx0SXau7E6SVPbYfcTLuvO4g5fv2FxRqkgY=');
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        .Filter:hover
+        flex-flow: row;
+        form
         {
-            opacity: 1;
-            display: flex;
-            flex-flow: row;
-            form
-            {
-                display: flex
-            }
+            display: flex
         }
-        .Filter
+    }
+    .Filter
+    {
+        background-color: white;
+        opacity: .5;
+        display: flex;
+        flex-flow: row;
+        height: 50px;
+        h1
         {
-            background-color: white;
-            opacity: .5;
-            display: flex;
-            flex-flow: row;
-            height: 50px;
-            h1
-            {
-                font-size: 50px;
-            }
-            form
-            {
-                font-size: 40px;
-                display: none
-            }
+            font-size: 50px;
         }
+        form
+        {
+            font-size: 40px;
+            display: none
+        }
+    }
 }
 .Toptotal
 {
