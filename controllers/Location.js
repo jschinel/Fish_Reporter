@@ -20,7 +20,6 @@ const db = require('../models')
 
 router.get('/', async function (req, res)
  {
-        // console.log(req.query)
         let filterObj = req.query
         for(let key in filterObj)
         {
@@ -31,7 +30,6 @@ router.get('/', async function (req, res)
                 delete filterObj[key]
             }
         }
-        // console.log(filterObj) 
         const itemlist = await db.Location.find(filterObj)
         res.render('home',{itemlist: itemlist})
     })
@@ -41,7 +39,6 @@ router.get('/', async function (req, res)
 
 router.get('/add', async function (req, res)
 {
-       // console.log(req.query)
        res.render('Form')
 })
 
@@ -56,7 +53,6 @@ router.get('/:id', async function (req, res) {
 ////////////////////////////  CREATE ROUTE  ////////////////////////////////
 
 router.post('/add', (req, res) => {
-    console.log(req.body)
     db.Location.create(req.body)
         .then(() => res.redirect('/'))
 })

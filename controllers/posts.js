@@ -131,7 +131,6 @@ router.get('/delete/:id/:postid', function (req, res) {
     (
         singleItem =>        
         {
-            // console.log(singleItem[0])
             for(let i = 0 ; i < singleItem[0].Posts.length ; i ++ )
             {
                 if(singleItem[0].Posts[i].id==req.params.postid)

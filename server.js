@@ -55,17 +55,12 @@ if (process.env.ON_HEROKU === 'false') {
 app.get('/seed', async (req, res) => {
     // Remove any existing items
     const formerLocations = await db.Location.deleteMany({})
-    console.log(`Removed ${formerLocations.deletedCount} items`)
     // Seed the items collection with the starter data
     const newLocations = await db.Location.insertMany(db.seedLocations)
-    console.log(`Added ${db.seedLocations.length} items to be sold`)
     //Redirect back to item gallery
     res.redirect('/Location')
 })
 }
-
-
-
 
 /* Mount routes
 --------------------------------------------------------------- */
