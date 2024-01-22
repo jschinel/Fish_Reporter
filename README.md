@@ -1,4 +1,6 @@
 
+<h1>
+
 ![Home Page](public/Pictures/Website/Home.png)
 
 The intentions of the website is to give the user quick and easy access to a multitude of fishing information for any lake. The user will also have access to adding locations or posting fish he caught at a given location! With this we can all help each other to never get skunked again!
