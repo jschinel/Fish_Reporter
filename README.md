@@ -1,5 +1,4 @@
 
-<h1>
 
 ![Home Page](public/Pictures/Website/Home.png)
 
