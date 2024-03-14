@@ -17,4 +17,3 @@ const locationSchema = new mongoose.Schema({
 // Export the schema as a Monogoose model. 
 // The Mongoose model will be accessed in `models/index.js`
 module.exports = mongoose.model('Location', locationSchema);
-
